@@ -1,0 +1,43 @@
+library(VariantAnnotation)
+library(StructuralVariantAnnotation)
+library(stringr)
+arg=commandArgs(T)
+
+#' Simple SV type classifier
+simpleEventType <- function(gr) {
+	pgr = partner(gr)
+	return(ifelse(seqnames(gr) != seqnames(pgr), "CTX", # inter-chromosomosal
+    ifelse(strand(gr) == strand(pgr), "INV",
+      ifelse(gr$insLen >= abs(gr$svLen) * 0.7, "INS", # TODO: improve classification of complex events
+        ifelse(xor(start(gr) < start(pgr), strand(gr) == "-"), "DEL","DUP")))))
+}
+
+vcf <- readVcf(arg[1], "CHM13")
+info(header(vcf)) = unique(as(rbind(as.data.frame(info(header(vcf))), data.frame(
+	row.names=c("SIMPLE_TYPE"),
+	Number=c("1"),
+	Type=c("String"),
+	Description=c("Simple event type annotation based purely on breakend position and orientation."))), "DataFrame"))
+gr <- breakpointRanges(vcf, inferMissingBreakends=TRUE)
+svtype <- simpleEventType(gr)
+info(vcf)$SIMPLE_TYPE <- NA_character_
+info(vcf[gr$sourceId])$SIMPLE_TYPE <- svtype
+writeVcf(vcf, arg[2])
+
+# TODO: perform event filtering here
+# By default, GRIDSS is very sensitive but this comes at the cost of a high false discovery rate
+gr <- gr[gr$FILTER == "PASS" & partner(gr)$FILTER == "PASS"] # Remove low confidence calls
+
+simplegr <- gr[simpleEventType(gr) %in% c("INS", "INV", "DEL", "DUP")]
+simplebed <- data.frame(
+	chrom=seqnames(simplegr),
+	# call the centre of the homology/inexact interval
+	start=as.integer((start(simplegr) + end(simplegr)) / 2),
+	end=as.integer((start(partner(simplegr)) + end(partner(simplegr))) / 2),
+	name=simpleEventType(simplegr),
+	score=simplegr$QUAL,
+	strand="."
+)
+# Just the lower of the two breakends so we don't output everything twice
+simplebed <- simplebed[simplebed$start < simplebed$end,]
+write.table(simplebed, arg[3], quote=FALSE, sep='\t', row.names=FALSE, col.names=FALSE)

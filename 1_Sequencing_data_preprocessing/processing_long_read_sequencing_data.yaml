@@ -1,0 +1,13 @@
+samples:
+    M3-M: 
+        - $HOME/raw_data_nanopore/M3-M/20230515-NPL230493-P6-PAO55381-fast/98209d2d_qc_report/20230515-NPL230493-P6-PAO55381-fast.pass.fastq.gz
+    M3-F: 
+        - $HOME/raw_data_nanopore/M3-F/20230515-NPL230492-P6-PAO54471-fast/97dd45e9_qc_report/20230515-NPL230492-P6-PAO54471-fast.pass.fastq.gz
+    M3-B: 
+        - $HOME/raw_data_nanopore/M3-B/M3-B.fq.gz
+    M3-E: 
+        - $HOME/raw_data_nanopore/M3-E/M3-E.fq.gz
+    M3-P2: 
+        - $HOME/raw_data_nanopore/M3-P2/M3-P2.fq.gz
+    M3-P5: 
+        - $HOME/raw_data_nanopore/M3-P5/M3-P5.fq.gz

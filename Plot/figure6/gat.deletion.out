@@ -1,0 +1,4 @@
+track	annotation	observed	expected	CI95low	CI95high	stddev	fold	l2fold	pvalue	qvalue	track_nsegments	track_size	track_density	annotation_nsegments	annotation_size	annotation_density	overlap_nsegments	overlap_size	overlap_density	percent_overlap_nsegments_track	percent_overlap_size_track	percent_overlap_nsegments_annotation	percent_overlap_size_annotation
+merged	exon	1119	23969.5122	10008.0000	42287.0000	9998.2532	0.0467	-4.4197	1.0000e-04	3.0000e-04	42	2120531	7.3941e-02	110950	37811255	1.3184e+00	5	1119	3.9018e-05	11.9048	0.0528	0.0045	0.0030
+merged	intron	203699	334123.6283	178052.0000	527531.0000	106864.0453	0.6097	-0.7139	9.7900e-02	9.7900e-02	42	2120531	7.3941e-02	107387	478262724	1.6677e+01	11	203699	7.1028e-03	26.1905	9.6060	0.0102	0.0426
+merged	intergenic	1907813	1754537.8595	1553282.0000	1918087.0000	111538.4646	1.0874	0.1208	6.7200e-02	9.7900e-02	42	2120531	7.3941e-02	99017	2333065797	8.1352e+01	63	1907813	6.6524e-02	150.0000	89.9686	0.0636	0.0818
