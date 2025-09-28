@@ -1,6 +1,5 @@
-# Placental mosaicism
+# Comprehensive mutation analysis of fetal and placental lineages to assess safety of mosaic embryo transfers
 The repo is the source code for the manuscript:
-* **Title**: Comprehensive mutation analysis of fetal and placental lineages to assess safety of mosaic embryo transfers
 * **DOI**: 
 
 1. [Contents](#contents)
