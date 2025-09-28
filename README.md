@@ -9,6 +9,7 @@ The repo is the source code for the manuscript:
 4. [Contact](#contact)  
 
 ## Contents
+0. Plot
 1. Sequencing data preprocessing
 2. Somatic small mutation
 3. Amplicon sequencing
@@ -18,9 +19,12 @@ The repo is the source code for the manuscript:
 7. Structural variation
 8. Loss of heterozygosity
 9. Parental origin assignment
-* Plot
+
 
 ## Analysis workflow
+### 0. Plot
+All scripts to generate respective figures
+
 ### 1. Sequencing data preprocessing
 Sequencing data preprocessing and read alignment.
 
@@ -34,7 +38,7 @@ Amplicon sequencing data processing and more accurate VAFs calculation.
 The specific transcripts expressed in placentas detection and an annotation file for placentas generation.
 
 ### 5. Cell lineage reconstruction
-Reconstruction cell lineage  with somatic shared mutations.
+Reconstruction cell lineage  with VAFs of somatic shared mutations.
 
 ### 6. Cell division estimation
 Estimation of the number of accumulated cell divisions around the bottleneck events.
@@ -46,13 +50,10 @@ Structural variation identification and breakpoint analysis.
 The boundary of loss of heterozygosity refinement.
 
 ### 9. Parental origin assignment
-Parental origin assignment of somatic mutations, including small-scale and large scale somatic mutations.
-
-### Plot
-All scripts to generate respective figures
+Parental origin assignment of somatic mutations, including small-scale and large-scale somatic mutations.
 
 ## Cites
 * Comprehensive mutation analysis of fetal and placental lineages to assess safety of mosaic embryo transfers. 
 
 ## Contact
-For reporting issues or requests related to the package, please use GitHub Issues or write to wujing56@mail2.sysu.edu.cn.
+For any queries, please use GitHub Issues or write to wujing56@mail2.sysu.edu.cn.
