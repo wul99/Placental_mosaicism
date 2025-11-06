@@ -47,7 +47,11 @@ p1 <- ggplot(data_long, aes(x = type, y = value, fill=mut)) +
   scale_x_discrete(labels = paste0(mid(data$type,1,1),mid(data$type,3,1),mid(data$type,7,1)))+
   labs(y = "Fraction of SNVs",x=NULL) +
   ylim(0,0.09)+
+<<<<<<< HEAD
   theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = .5, size = 18, color = "black"),axis.text.y = element_text(size = 25, color = "black"), strip.background = element_rect(fill = "#f5f5f5", linewidth = 0.5, color = "black"),strip.text = element_text(size = 30, color = "black"),panel.grid = element_blank(),text = element_text(size = 30),panel.border = element_rect(color = "black"),legend.position = "top",legend.text = element_text(size = 30,color = "black")) + guides(fill = guide_legend(nrow = 1))
+=======
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = .5, size = 18, color = "black"),axis.text.y = element_text(size = 25, color = "black"),strip.background = element_rect(fill = "#f5f5f5", linewidth = 0.5, color = "black"),strip.text = element_text(size = 30,color = "black"),panel.grid = element_blank(),text = element_text(size = 30),panel.border = element_rect(color = "black"),legend.position = "top",legend.text = element_text(size = 30,color = "black")) + guides(fill = guide_legend(nrow = 1))
+>>>>>>> af9b9014a662c16a36c3696db97f20c3be9ce635
 
 sim1 <- cosine(data_long[data_long$category=="BP_shared",]$value, data_long[data_long$category=="PP_shared",]$value)
 sim2 <- cosine(data_long[data_long$category=="BP_shared",]$value, data_long[data_long$category=="P_unique",]$value)
